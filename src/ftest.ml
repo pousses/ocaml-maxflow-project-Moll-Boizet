@@ -1,4 +1,6 @@
 open Gfile
+open FordFulkerson
+open Tools
     
 let () =
 
@@ -28,10 +30,16 @@ let () =
   (* Open file *)
   let graph = from_file infile in
 
-  (* Rewrite the graph that has been read. *)
-  let () = write_file outfile graph in
 
-  let () = export  outfile graph in
+  let b = modife_graphe (gmap graph int_of_string) (path_mini (min_on_path ({src = 0;tgt = 1;lbl = 3}::{src = 1;tgt = 5;lbl = 1}::{src = 1;tgt = 4;lbl = 15}::[])) ({src = 0;tgt = 1;lbl = 3}::{src = 1;tgt = 5;lbl = 2}::{src = 1;tgt = 4;lbl = 15}::[])) in
+
+
+  (* Rewrite the graph that has been read. *)
+  let () = export outfile graph in
+
+  let () = export outfile (gmap b string_of_int) in
+
 
   ()
+
 
