@@ -1,6 +1,22 @@
 open Graph
 open Tools
 
+(*trouve un chemin entre la source et le puit*)
+let find_path g id_s id_p =
+
+  let rec path_finding g arcs id_p =
+    match arcs with
+    | [] -> None
+    | x :: _ when x.tgt = id_p -> Some (x :: [])
+    | x :: rest ->
+      match (path_finding g (out_arcs g x.tgt) id_p) with
+      | None -> (path_finding g rest id_p)
+      | Some y -> Some (x :: y)
+  in
+
+  path_finding g (out_arcs g id_s) id_p
+;;
+
 
 (*trouve min d'un chemin*)
 let rec min_on_path = function

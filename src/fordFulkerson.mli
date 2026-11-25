@@ -1,11 +1,11 @@
 open Graph
 
-(* fonction principale
-val ford_fulkerson: int graph -> int graph*)
+(*fonction principale*)
+(*val ford_fulkerson: int graph -> int graph*)
 
 
-(*trouve chemin max dans graphe double fleche / si aucun chemin trouver finir / verifier pas de passage double sur un node / DFS / ignorer arc 0
-val find_path: int graph -> int arc list*)
+(*trouve chemin max dans graphe double fleche / si aucun chemin trouver finir / verifier pas de passage double sur un node / DFS / ignorer arc 0*)
+val find_path: int graph -> int arc list
 
 
 (*trouve min d'un chemin*)
